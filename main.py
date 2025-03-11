@@ -3,6 +3,7 @@ from GUI import login
 
 if __name__ == '__main__':
     root = Tk()
+    root.iconbitmap('Images/icon.ico')
     screen_width = root.winfo_screenwidth()
     screen_height = root.winfo_screenheight()
     root.geometry(f"{screen_width//2}x{screen_height//2}")
