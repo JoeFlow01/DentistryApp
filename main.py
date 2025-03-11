@@ -3,10 +3,12 @@ from GUI import login
 
 if __name__ == '__main__':
     root = Tk()
+    root.rowconfigure(0,weight=1)
+    root.columnconfigure(0,weight=1)
     #Creating app icon
     root.iconbitmap('Images/icon.ico')
     #Disable resizing
-    root.resizable(False, False)
+    #root.resizable(False, False)
     #Getting info about screen size
     screen_width = root.winfo_screenwidth()
     screen_height = root.winfo_screenheight()
