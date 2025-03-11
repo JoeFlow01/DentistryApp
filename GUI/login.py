@@ -26,7 +26,7 @@ class LoginPage:
         self.usr_pass_label = Label(self.right_frame,text='Password')
         self.usr_pass_label.grid(row=1, column=0)
 
-        self.usr_pass_field = Entry(self.right_frame)
+        self.usr_pass_field = Entry(self.right_frame,show="*")
         self.usr_pass_field.grid(row=1, column=1)
 
         self.login_btn = Button(self.right_frame,text='Login')

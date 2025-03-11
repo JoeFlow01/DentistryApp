@@ -30,13 +30,13 @@ class SignUpPage:
         self.usr_pass_label = Label(self.main_frame, text='Password')
         self.usr_pass_label.grid(row=3, column=0,sticky='w')
 
-        self.usr_pass_field = Entry(self.main_frame)
+        self.usr_pass_field = Entry(self.main_frame,show="*")
         self.usr_pass_field.grid(row=3, column=1,sticky='w')
 
         self.usr_cnfpass_label = Label(self.main_frame, text='Confirm Password')
         self.usr_cnfpass_label.grid(row=4, column=0,sticky='w')
 
-        self.usr_cnfpass_field = Entry(self.main_frame)
+        self.usr_cnfpass_field = Entry(self.main_frame,show="*")
         self.usr_cnfpass_field.grid(row=4, column=1,sticky='w')
 
         self.sbmt_btn = Button(self.main_frame,text='Submit')
