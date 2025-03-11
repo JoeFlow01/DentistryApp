@@ -34,13 +34,13 @@ class LoginPage:
         self.usr_pass_field.grid(row=1, column=1,padx=5,pady=5,sticky='w')
 
         self.login_btn = Button(self.right_frame,text='Login')
-        self.login_btn.grid(row=2,column=0,columnspan=2,padx=5,pady=5)
+        self.login_btn.grid(row=2,column=0,columnspan=2,padx=5,pady=5, sticky="ew")
 
         self.dnt_hv_acc_lbl = Label(self.right_frame,text="Don't have an account? Signup")
         self.dnt_hv_acc_lbl.grid(row=3,column=0,columnspan=2,padx=5,pady=5,sticky='w')
 
         self.sign_up_btn = Button(self.right_frame,text='Signup',command=lambda:signup.SignUpPage(self.main_frame))
-        self.sign_up_btn.grid(row=4,column=0,columnspan=2,padx=5,pady=5)
+        self.sign_up_btn.grid(row=4,column=0,columnspan=2,padx=5,pady=5, sticky="ew")
 
 
 

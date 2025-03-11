@@ -50,8 +50,8 @@ class SignUpPage:
         self.usr_cnfpass_field.grid(row=4, column=1,sticky='w',padx=5,pady=5)
 
         self.sbmt_btn = Button(self.right_frame,text='Submit')
-        self.sbmt_btn.grid(row=5,column=0,columnspan=2,padx=5,pady=5)
+        self.sbmt_btn.grid(row=5,column=0,columnspan=2,padx=5,pady=5, sticky="ew")
 
         self.bck_to_lgn_btn = Button(master=self.right_frame,text='Back to login',command=lambda:login.LoginPage(self.main_frame))
-        self.bck_to_lgn_btn.grid(row=6,column=0,columnspan=2,padx=5,pady=5)
+        self.bck_to_lgn_btn.grid(row=6,column=0,columnspan=2,padx=5,pady=5, sticky="ew")
 
