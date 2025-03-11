@@ -1,6 +1,9 @@
 from tkinter import *
 from PIL import ImageTk, Image
+from tkinter import messagebox
+
 class SignUpPage:
+
     def __init__(self,main_frame):
         #prevening circular imports
         from GUI import login
@@ -49,9 +52,15 @@ class SignUpPage:
         self.usr_cnfpass_field = Entry(self.right_frame,show="*")
         self.usr_cnfpass_field.grid(row=4, column=1,sticky='w',padx=5,pady=5)
 
-        self.sbmt_btn = Button(self.right_frame,text='Submit')
+        self.sbmt_btn = Button(self.right_frame,text='Submit',command=self.sing_up)
         self.sbmt_btn.grid(row=5,column=0,columnspan=2,padx=5,pady=5, sticky="ew")
 
         self.bck_to_lgn_btn = Button(master=self.right_frame,text='Back to login',command=lambda:login.LoginPage(self.main_frame))
         self.bck_to_lgn_btn.grid(row=6,column=0,columnspan=2,padx=5,pady=5, sticky="ew")
+
+    def sing_up(self):
+        from GUI import login
+        if True:
+            messagebox.showinfo("Welcome on board", "Credenials submitted correctly")
+            login.LoginPage(self.main_frame)
 
