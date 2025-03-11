@@ -4,11 +4,11 @@ class SignUpPage:
     def __init__(self,main_frame):
         #prevening circular imports
         from GUI import login
+        # Removing old widgets
+        for widget in main_frame.winfo_children():
+            widget.destroy()
         self.main_frame = main_frame
-        self.main_frame.forget()
-        self.main_frame = Frame()
-        self.main_frame.pack(expand=True)
-
+        #Creating widgets
         self.usr_name_label = Label(self.main_frame,text='Username')
         self.usr_name_label.grid(row=0, column=0,sticky='w')
 
