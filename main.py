@@ -14,7 +14,7 @@ if __name__ == '__main__':
     #Setting app position and geometry
     x_position = (screen_width - app_width) // 2
     y_position = (screen_height - app_height) // 2
-    root.geometry(f"{app_width}x{app_height}+{x_position}+{y_position}")
+    #root.geometry(f"{app_width}x{app_height}+{x_position}+{y_position}")
     #Setting title
     root.title('Dentistry app')
     #Calling the Login page
