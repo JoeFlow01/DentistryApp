@@ -45,9 +45,9 @@ class LoginPage:
 
 
     def log_in(self):
-        from GUI import appointments
+        from GUI import Home
         if True:
-            appointments.AppointmentsPage(self.main_frame)
+            Home.HomePage(self.main_frame)
 
 
 
