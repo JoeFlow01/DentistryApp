@@ -9,7 +9,7 @@ class LoginPage:
         for widget in main_frame.winfo_children():
             widget.destroy()
         self.main_frame = main_frame
-        self.main_frame.columnconfigure([0, 1],weight=1)
+        self.main_frame.columnconfigure(0,weight=1)
         self.main_frame.rowconfigure(0, weight=1)
         #Setting app image
         self.img = Image.open('Images/logo.jfif')
@@ -34,7 +34,7 @@ class LoginPage:
         self.usr_pass_field = CTkEntry(self.right_frame,show="*")
         self.usr_pass_field.grid(row=1, column=1,padx=5,pady=5,sticky='w')
 
-        self.login_btn = CTkButton(self.right_frame,text='Login')
+        self.login_btn = CTkButton(self.right_frame,text='Login',command=self.log_in)
         self.login_btn.grid(row=2,column=0,columnspan=2,padx=5,pady=5, sticky="ew")
 
         self.dnt_hv_acc_lbl = CTkLabel(self.right_frame,text="Don't have an account? Signup")
@@ -42,6 +42,14 @@ class LoginPage:
 
         self.sign_up_btn = CTkButton(self.right_frame,text='Signup',command=lambda:signup.SignUpPage(self.main_frame))
         self.sign_up_btn.grid(row=4,column=0,columnspan=2,padx=5,pady=5, sticky="ew")
+
+
+    def log_in(self):
+        from GUI import appointments
+        if True:
+            appointments.AppointmentsPage(self.main_frame)
+
+
 
 
 
