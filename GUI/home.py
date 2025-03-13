@@ -14,7 +14,7 @@ class HomePage:
         self.left_frame = CTkFrame(master= self.main_frame)
         self.left_frame.grid(row=0,column=0,padx=5,pady=5, sticky="nsew")
         self.left_frame.columnconfigure([0,1],weight=1)
-        self.left_frame.rowconfigure(0,weight=1)
+        self.left_frame.rowconfigure(0,weight=0)
         #Adding date entry widget
         self.date_entry = DateEntry(self.left_frame,
                                background='darkblue',
@@ -25,7 +25,7 @@ class HomePage:
         self.date_entry.grid(row=0,column=0,sticky='ew',padx=5,pady=5)
         self.date_entry.bind("<<DateEntrySelected>>", self.on_date_selected)
         #View appointments button
-        self.view_app_btn = CTkButton(self.left_frame, text="View appointments")
+        self.view_app_btn = CTkButton(self.left_frame, text="View appointments",command=self.list_appointments)
         self.view_app_btn.grid(row=0,column=1,sticky='ew',padx=5,pady=5)
 
         #Creating right frame
@@ -42,3 +42,33 @@ class HomePage:
     #Bring focus back to the main window after selecting a date
     def on_date_selected(self,event):
         self.main_frame.focus_force()
+
+    def list_appointments(self):
+        fake_list = [('13/03/2025 10:00 AM',2,'Doc Ahmed',1,'Pat ali')
+                     ,('13/03/2025 1:00 PM',3,'Doc Sara',2,'Pat Soha'),
+                     ('13/03/2025 3:00 PM',2,'Doc Hima',1,'Pat Rabbab'),
+                     ('13/03/2025 6:00 PM',4,'Doc Ahmed',3,'Pat Rana')]
+        fake_list = []
+
+        if fake_list:
+            new_frame = CTkFrame(master=self.left_frame)
+            new_frame.grid(row=1,column=0,columnspan=2,sticky='nsew')
+            new_frame.columnconfigure([0,1,2,2,4],weight=1)
+            new_frame.rowconfigure(0,weight=1)
+            list_of_lbs= [('Date', 0),('Duration',1),('Doctor',2),('Room',3),('Patient',4)]
+            for lbl,col in list_of_lbs:
+                new_lbl = CTkLabel(new_frame, text=lbl)
+                new_lbl.grid(row=0,column=col,padx=5,pady=5, sticky="ew")
+
+        else:
+            self.left_frame.rowconfigure(1,weight=1)
+            new_frame = CTkFrame(master=self.left_frame)
+            new_frame.grid(row=1,column=0,columnspan=2,sticky='nsew')
+            new_frame.columnconfigure(0,weight=1)
+            new_frame.rowconfigure(0,weight=1)
+            new_lbl = CTkLabel(new_frame, text="No Appointments Available")
+            new_lbl.grid(row=0, column=0, padx=5, pady=5, sticky="nsew")
+
+
+
+

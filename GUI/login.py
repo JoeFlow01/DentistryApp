@@ -45,9 +45,9 @@ class LoginPage:
 
 
     def log_in(self):
-        from GUI import Home
+        from GUI import home
         if True:
-            Home.HomePage(self.main_frame)
+            home.HomePage(self.main_frame)
 
 
 
