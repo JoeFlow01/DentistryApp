@@ -48,18 +48,26 @@ class HomePage:
                      ,('13/03/2025 1:00 PM',3,'Doc Sara',2,'Pat Soha'),
                      ('13/03/2025 3:00 PM',2,'Doc Hima',1,'Pat Rabbab'),
                      ('13/03/2025 6:00 PM',4,'Doc Ahmed',3,'Pat Rana')]
-        fake_list = []
 
         if fake_list:
             new_frame = CTkFrame(master=self.left_frame)
             new_frame.grid(row=1,column=0,columnspan=2,sticky='nsew')
-            new_frame.columnconfigure([0,1,2,2,4],weight=1)
+            new_frame.columnconfigure([0,1,2,3,4],weight=1)
             new_frame.rowconfigure(0,weight=1)
-            list_of_lbs= [('Date', 0),('Duration',1),('Doctor',2),('Room',3),('Patient',4)]
+            list_of_lbs= [('Date', 0),('Duration',1),('Doctor',2),('Room',3),('Patient',4),("",5)]
             for lbl,col in list_of_lbs:
                 new_lbl = CTkLabel(new_frame, text=lbl)
                 new_lbl.grid(row=0,column=col,padx=5,pady=5, sticky="ew")
-
+            row = 1
+            for app in fake_list:
+                col = 0
+                for atr in app:
+                    new_lbl = CTkLabel(new_frame, text=atr)
+                    new_lbl.grid(row=row, column=col, padx=5, pady=5, sticky="ew")
+                    col += 1
+                rm_btn = CTkButton(master=new_frame,text = 'Remove appointment')
+                rm_btn.grid(row=row, column=5, padx=5, pady=5, sticky="ew")
+                row += 1
         else:
             self.left_frame.rowconfigure(1,weight=1)
             new_frame = CTkFrame(master=self.left_frame)
