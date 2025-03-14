@@ -59,6 +59,7 @@ class SignUpPage:
         self.bck_to_lgn_btn = CTkButton(master=self.right_frame,text='Back to login',command=lambda:login.LoginPage(self.main_frame))
         self.bck_to_lgn_btn.grid(row=6,column=0,columnspan=2,padx=5,pady=5, sticky="ew")
 
+    #Signup new user
     def sign_up(self):
         from GUI import login
         if True:

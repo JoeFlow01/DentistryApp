@@ -43,7 +43,7 @@ class LoginPage:
         self.sign_up_btn = CTkButton(self.right_frame,text='Signup',command=lambda:signup.SignUpPage(self.main_frame))
         self.sign_up_btn.grid(row=4,column=0,columnspan=2,padx=5,pady=5, sticky="ew")
 
-
+    #Login to homepage
     def log_in(self):
         from GUI import home
         if True:
