@@ -8,7 +8,7 @@ if __name__ == '__main__':
     #Creating app icon
     root.iconbitmap('Images/icon.ico')
     #Disable resizing
-    #root.resizable(False, False)
+    root.resizable(False, False)
     #Getting info about screen size
     screen_width = root.winfo_screenwidth()
     screen_height = root.winfo_screenheight()

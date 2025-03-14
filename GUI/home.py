@@ -3,6 +3,7 @@ from tkcalendar import DateEntry
 class HomePage:
 
     def __init__(self, main_frame):
+
         # Removing old widgets
         for widget in main_frame.winfo_children():
             widget.destroy()
@@ -38,6 +39,9 @@ class HomePage:
         for btn,row in self.list_of_btn:
             new_btn = CTkButton(self.right_frame, text=btn)
             new_btn.grid(row=row,column=0,padx=5,pady=5, sticky="ew")
+        #Creating the new frame to hold appointments
+        self.new_frame = None
+
 
     #Bring focus back to the main window after selecting a date
     def on_date_selected(self,event):
@@ -49,32 +53,32 @@ class HomePage:
                      ('13/03/2025 3:00 PM',2,'Doc Hima',1,'Pat Rabbab'),
                      ('13/03/2025 6:00 PM',4,'Doc Ahmed',3,'Pat Rana')]
 
+        if not self.new_frame:
+            self.new_frame = CTkFrame(master=self.left_frame)
+            self.new_frame.grid(row=1,column=0,columnspan=2,sticky='nsew')
+
         if fake_list:
-            new_frame = CTkFrame(master=self.left_frame)
-            new_frame.grid(row=1,column=0,columnspan=2,sticky='nsew')
-            new_frame.columnconfigure([0,1,2,3,4],weight=1)
-            new_frame.rowconfigure(0,weight=1)
+            self.new_frame.columnconfigure([0,1,2,3,4],weight=1)
+            self.new_frame.rowconfigure(0,weight=1)
             list_of_lbs= [('Date', 0),('Duration',1),('Doctor',2),('Room',3),('Patient',4),("",5)]
             for lbl,col in list_of_lbs:
-                new_lbl = CTkLabel(new_frame, text=lbl)
+                new_lbl = CTkLabel(self.new_frame, text=lbl)
                 new_lbl.grid(row=0,column=col,padx=5,pady=5, sticky="ew")
             row = 1
             for app in fake_list:
                 col = 0
                 for atr in app:
-                    new_lbl = CTkLabel(new_frame, text=atr)
+                    new_lbl = CTkLabel(self.new_frame, text=atr)
                     new_lbl.grid(row=row, column=col, padx=5, pady=5, sticky="ew")
                     col += 1
-                rm_btn = CTkButton(master=new_frame,text = 'Remove appointment')
+                rm_btn = CTkButton(master=self.new_frame,text = 'Cancel')
                 rm_btn.grid(row=row, column=5, padx=5, pady=5, sticky="ew")
                 row += 1
         else:
             self.left_frame.rowconfigure(1,weight=1)
-            new_frame = CTkFrame(master=self.left_frame)
-            new_frame.grid(row=1,column=0,columnspan=2,sticky='nsew')
-            new_frame.columnconfigure(0,weight=1)
-            new_frame.rowconfigure(0,weight=1)
-            new_lbl = CTkLabel(new_frame, text="No Appointments Available")
+            self.new_frame.columnconfigure(0,weight=1)
+            self.new_frame.rowconfigure(0,weight=1)
+            new_lbl = CTkLabel(self.new_frame, text="No Appointments Available")
             new_lbl.grid(row=0, column=0, padx=5, pady=5, sticky="nsew")
 
 
