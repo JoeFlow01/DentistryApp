@@ -53,10 +53,15 @@ class HomePage:
         fake_list = [('13/03/2025 10:00 AM', 2, 'Doc Ahmed', 1, 'Pat ali'),
                      ('13/03/2025 1:00 PM', 3, 'Doc Sara', 2, 'Pat Soha'),
                      ('13/03/2025 3:00 PM', 2, 'Doc Hima', 1, 'Pat Rabbab'),
+                     ('13/03/2025 6:00 PM', 4, 'Doc Ahmed', 3, 'Pat Rana'),
+                     ('13/03/2025 10:00 AM', 2, 'Doc Ahmed', 1, 'Pat ali'),
+                     ('13/03/2025 1:00 PM', 3, 'Doc Sara', 2, 'Pat Soha'),
+                     ('13/03/2025 3:00 PM', 2, 'Doc Hima', 1, 'Pat Rabbab'),
                      ('13/03/2025 6:00 PM', 4, 'Doc Ahmed', 3, 'Pat Rana')]
+
         #Check the button was clicked before to create the frame to hold appointments
         if not self.new_frame:
-            self.new_frame = CTkFrame(master=self.left_frame)
+            self.new_frame = CTkScrollableFrame(master=self.left_frame)
             self.new_frame.grid(row=1,column=0,columnspan=2,sticky='nsew')
         else:
             for widget in self.new_frame.winfo_children():
@@ -81,11 +86,14 @@ class HomePage:
                 rm_btn.grid(row=row, column=5, padx=5, pady=5, sticky="ew")
                 row += 1
         else:
+            self.new_frame = CTkFrame(master=self.left_frame)
+            self.new_frame.grid(row=1,column=0,columnspan=2,sticky='nsew')
+
             #Alert user that there is no appointments to show
             self.left_frame.rowconfigure(1,weight=1)
             self.new_frame.columnconfigure(0,weight=1)
             self.new_frame.rowconfigure(0,weight=1)
-            new_lbl = CTkLabel(self.new_frame, text="No Appointments Available")
+            new_lbl = CTkLabel(self.new_frame, text="No Appointments")
             new_lbl.grid(row=0, column=0, padx=5, pady=5, sticky="nsew")
 
-
+            self.new_frame = None
