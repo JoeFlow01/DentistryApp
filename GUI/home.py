@@ -52,15 +52,12 @@ class HomePage:
     #Listing appointments
     def list_appointments(self):
 
+        fake_list = [('13/03/2025 10:00 AM', 1, 'Doc Ahmed', 1, 'Pat ali'),
+                     ('13/03/2025 1:00 PM', 2, 'Doc Sara', 2, 'Pat Soha'),
+                     ('13/03/2025 3:00 PM', 3, 'Doc Hima', 1, 'Pat Rabbab'),
+                     ('13/03/2025 6:00 PM', 4, 'Doc Ahmed', 3, 'Pat Rana'),]
 
-        fake_list = [('13/03/2025 10:00 AM', 2, 'Doc Ahmed', 1, 'Pat ali'),
-                     ('13/03/2025 1:00 PM', 3, 'Doc Sara', 2, 'Pat Soha'),
-                     ('13/03/2025 3:00 PM', 2, 'Doc Hima', 1, 'Pat Rabbab'),
-                     ('13/03/2025 6:00 PM', 4, 'Doc Ahmed', 3, 'Pat Rana'),
-                     ('13/03/2025 10:00 AM', 2, 'Doc Ahmed', 1, 'Pat ali'),
-                     ('13/03/2025 1:00 PM', 3, 'Doc Sara', 2, 'Pat Soha'),
-                     ('13/03/2025 3:00 PM', 2, 'Doc Hima', 1, 'Pat Rabbab'),
-                     ('13/03/2025 6:00 PM', 4, 'Doc Ahmed', 3, 'Pat Rana')]
+        fake_list = fake_list + fake_list + fake_list + fake_list +fake_list + fake_list
         #Check the button was clicked before to create the frame to hold appointments
         if not self.new_frame:
             self.new_frame = CTkScrollableFrame(master=self.left_frame)
