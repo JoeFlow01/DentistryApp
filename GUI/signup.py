@@ -21,7 +21,7 @@ class SignUpPage:
         self.right_frame = CTkFrame(master=self.main_frame)
         self.right_frame.grid(row=0,column=1,padx=5,pady=5, sticky="nsew")
         self.right_frame.columnconfigure([0, 1],weight=1)
-        self.right_frame.rowconfigure([0,1,2,3,4], weight=1)
+        self.right_frame.rowconfigure([0,1,2,3,4,5,6], weight=1)
         #Creating widgets
         self.usr_name_label = CTkLabel(self.right_frame,text='Username')
         self.usr_name_label.grid(row=0, column=0,sticky='w',padx=5,pady=5)

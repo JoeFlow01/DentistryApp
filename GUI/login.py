@@ -9,7 +9,7 @@ class LoginPage:
         for widget in main_frame.winfo_children():
             widget.destroy()
         self.main_frame = main_frame
-        self.main_frame.columnconfigure(0,weight=1)
+        self.main_frame.columnconfigure([0,1],weight=1)
         self.main_frame.rowconfigure(0, weight=1)
         #Setting app image
         self.img = Image.open('Images/logo.jfif')
